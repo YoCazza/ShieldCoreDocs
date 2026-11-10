@@ -1,0 +1,57 @@
+/* ShieldCore look: colors, radius and surfaces taken from the dashboard themes (dark + light). */
+:root {
+  --sc-radius: 8px;
+  --sc-accent: #10B981;
+}
+
+/* Dark: the dashboard "Dark" theme */
+html.dark {
+  --sc-canvas: #101215;
+  --sc-surface: #16191D;
+  --sc-raised: #1B1F24;
+  --sc-border: #2A2E33;
+  --sc-text-muted: #9AA0A6;
+}
+/* Light: the dashboard "Light" theme */
+html:not(.dark) {
+  --sc-canvas: #F3F1EC;
+  --sc-surface: #F8F6F1;
+  --sc-raised: #FFFFFF;
+  --sc-border: #D8D4CB;
+  --sc-text-muted: #626863;
+}
+
+body { background-color: var(--sc-canvas); }
+
+/* Same corner radius everywhere, like the dashboard */
+.card, .callout, .accordion, .tabs, .code-block, .steps, table,
+#navbar-transition input, [role="dialog"], button, .prose img {
+  border-radius: var(--sc-radius) !important;
+}
+
+/* Surfaces */
+.card, .accordion, .code-block {
+  background-color: var(--sc-surface);
+  border: 1px solid var(--sc-border);
+  box-shadow: none;
+}
+.card:hover { border-color: var(--sc-accent); }
+.callout { border: 1px solid var(--sc-border); }
+
+#navbar, #sidebar, #table-of-contents-layout { border-color: var(--sc-border); }
+html.dark #navbar { background-color: color-mix(in srgb, var(--sc-canvas) 85%, transparent); }
+
+/* Tables */
+.prose table { border: 1px solid var(--sc-border); border-collapse: separate; border-spacing: 0; overflow: hidden; }
+.prose thead th { background-color: var(--sc-surface); color: var(--sc-text-muted); font-weight: 600; font-size: 0.8rem; }
+.prose th, .prose td { border-color: var(--sc-border) !important; }
+
+/* Inline code */
+.prose :not(pre) > code { border-radius: 6px; }
+
+/* Calm, minimal links and headings */
+.prose a { text-underline-offset: 3px; }
+.prose h1, .prose h2 { letter-spacing: -0.01em; }
+
+/* Primary button in the navbar */
+#navbar a[href*="shieldcore.app"] { border-radius: var(--sc-radius); }

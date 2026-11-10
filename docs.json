@@ -4,9 +4,9 @@
   "name": "ShieldCore Docs",
   "description": "Documentation for ShieldCore, the Discord security and community bot with a web dashboard.",
   "colors": {
-    "primary": "#00B887",
-    "light": "#00EDAB",
-    "dark": "#008F6A"
+    "primary": "#10B981",
+    "light": "#14C98A",
+    "dark": "#087A52"
   },
   "favicon": "/favicon.svg",
   "logo": {
@@ -18,15 +18,29 @@
     "groups": [
       {
         "group": "Getting started",
-        "pages": ["index", "quickstart", "dashboard/overview", "dashboard/setup-wizard", "plans"]
+        "pages": [
+          "index",
+          "quickstart",
+          "dashboard/overview",
+          "dashboard/setup-wizard",
+          "plans"
+        ]
       },
       {
         "group": "Security",
-        "pages": ["security/automod", "security/anti-nuke", "security/anti-bot", "security/backups"]
+        "pages": [
+          "security/automod",
+          "security/anti-nuke",
+          "security/anti-bot",
+          "security/backups"
+        ]
       },
       {
         "group": "Moderation",
-        "pages": ["moderation/commands", "moderation/logging"]
+        "pages": [
+          "moderation/commands",
+          "moderation/logging"
+        ]
       },
       {
         "group": "Modules",
@@ -46,31 +60,60 @@
       },
       {
         "group": "Automation",
-        "pages": ["automation/workflows", "automation/command-builder", "automation/embed-builder"]
+        "pages": [
+          "automation/workflows",
+          "automation/command-builder",
+          "automation/embed-builder"
+        ]
       },
       {
         "group": "Settings",
-        "pages": ["settings/general", "settings/bot-identity", "settings/subscription", "settings/audit-log"]
+        "pages": [
+          "settings/general",
+          "settings/bot-identity",
+          "settings/subscription",
+          "settings/audit-log"
+        ]
       },
       {
         "group": "Custom bot",
-        "pages": ["custom-bot/overview", "custom-bot/setup", "custom-bot/moving", "custom-bot/troubleshooting"]
+        "pages": [
+          "custom-bot/overview",
+          "custom-bot/setup",
+          "custom-bot/moving",
+          "custom-bot/troubleshooting"
+        ]
       },
       {
         "group": "Help",
-        "pages": ["support", "help/faq", "help/data-and-privacy"]
+        "pages": [
+          "support",
+          "help/faq",
+          "help/data-and-privacy"
+        ]
       }
     ],
     "global": {
       "anchors": [
-        { "anchor": "Dashboard", "href": "https://shieldcore.app", "icon": "gauge" },
-        { "anchor": "Support server", "href": "https://discord.com/invite/FnaGHu2eEb", "icon": "discord" }
+        {
+          "anchor": "Dashboard",
+          "href": "https://shieldcore.app",
+          "icon": "gauge"
+        },
+        {
+          "anchor": "Support server",
+          "href": "https://discord.com/invite/FnaGHu2eEb",
+          "icon": "discord"
+        }
       ]
     }
   },
   "navbar": {
     "links": [
-      { "label": "Support", "href": "https://discord.com/invite/FnaGHu2eEb" }
+      {
+        "label": "Support",
+        "href": "https://discord.com/invite/FnaGHu2eEb"
+      }
     ],
     "primary": {
       "type": "button",
@@ -79,12 +122,32 @@
     }
   },
   "contextual": {
-    "options": ["copy", "view", "chatgpt", "claude"]
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude"
+    ]
   },
   "footer": {
     "socials": {
       "discord": "https://discord.com/invite/FnaGHu2eEb",
       "website": "https://shieldcore.app"
     }
+  },
+  "background": {
+    "color": {
+      "light": "#F3F1EC",
+      "dark": "#101215"
+    }
+  },
+  "fonts": {
+    "family": "Geist",
+    "source": "/fonts/geist-latin.woff2",
+    "format": "woff2"
+  },
+  "styling": {
+    "eyebrows": "section",
+    "codeblocks": "dark"
   }
 }
