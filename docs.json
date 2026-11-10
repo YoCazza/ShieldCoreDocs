@@ -1,72 +1,90 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "ShieldCore Docs",
+  "description": "Documentation for ShieldCore, the Discord security and community bot with a web dashboard.",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#00B887",
+    "light": "#00EDAB",
+    "dark": "#008F6A"
   },
   "favicon": "/favicon.svg",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://shieldcore.app"
+  },
   "navigation": {
-    "pages": [
+    "groups": [
       {
-        "group": "Getting Started",
+        "group": "Getting started",
+        "pages": ["index", "quickstart", "dashboard/overview", "dashboard/setup-wizard", "plans"]
+      },
+      {
+        "group": "Security",
+        "pages": ["security/automod", "security/anti-nuke", "security/anti-bot", "security/backups"]
+      },
+      {
+        "group": "Moderation",
+        "pages": ["moderation/commands", "moderation/logging"]
+      },
+      {
+        "group": "Modules",
         "pages": [
-          "index",
-          "quickstart"
+          "modules/overview",
+          "modules/auto-role",
+          "modules/auto-responder",
+          "modules/welcome-leave",
+          "modules/reaction-roles",
+          "modules/giveaway",
+          "modules/creator-alerts",
+          "modules/sticky-messages",
+          "modules/private-voice",
+          "modules/suggestions",
+          "modules/tickets"
         ]
+      },
+      {
+        "group": "Automation",
+        "pages": ["automation/workflows", "automation/command-builder", "automation/embed-builder"]
+      },
+      {
+        "group": "Settings",
+        "pages": ["settings/general", "settings/bot-identity", "settings/subscription", "settings/audit-log"]
+      },
+      {
+        "group": "Custom bot",
+        "pages": ["custom-bot/overview", "custom-bot/setup", "custom-bot/moving", "custom-bot/troubleshooting"]
+      },
+      {
+        "group": "Help",
+        "pages": ["support", "help/faq", "help/data-and-privacy"]
       }
     ],
     "global": {
       "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
+        { "anchor": "Dashboard", "href": "https://shieldcore.app", "icon": "gauge" },
+        { "anchor": "Support server", "href": "https://discord.com/invite/FnaGHu2eEb", "icon": "discord" }
       ]
     }
   },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
   "navbar": {
     "links": [
-      {
-        "label": "Support",
-        "href": "mailto:support@mintlify.com"
-      }
+      { "label": "Support", "href": "https://discord.com/invite/FnaGHu2eEb" }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Open dashboard",
+      "href": "https://shieldcore.app"
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
+    "options": ["copy", "view", "chatgpt", "claude"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "discord": "https://discord.com/invite/FnaGHu2eEb",
+      "website": "https://shieldcore.app"
     }
   }
 }

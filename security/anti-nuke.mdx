@@ -1,0 +1,55 @@
+---
+title: "Anti-Nuke"
+description: "Stop mass deletions, mass bans and permission abuse before they wreck your server."
+---
+
+A "nuke" is when someone with too much power (or a hijacked admin account or rogue bot) rapidly deletes channels and roles, mass-bans members or hands out dangerous permissions. Anti-Nuke watches for these patterns and reacts within seconds.
+
+Open it from **Anti-Nuke** in the sidebar.
+
+## Presets
+
+Choose a preset first, then fine-tune anything you like.
+
+| Preset | Behavior |
+| --- | --- |
+| **Relaxed** | Gives people more room before reacting. Fewer false alarms. |
+| **Balanced** | A sensible middle. Reacts to clearly unusual activity. |
+| **Strict** | Reacts after very few actions and uses harder punishments. For servers with a lot to lose. |
+
+## Protections
+
+Each protection triggers when a number of actions happen within a time window. These are the defaults:
+
+| Protection | Triggers after | Default response |
+| --- | --- | --- |
+| Channel create | 5 in 10 s | Remove dangerous permissions |
+| Channel delete | 3 in 10 s | Remove dangerous permissions, restore |
+| Role create | 5 in 10 s | Remove dangerous permissions |
+| Role delete | 3 in 10 s | Remove dangerous permissions, restore |
+| Webhook create | 5 in 10 s | Remove dangerous permissions |
+| Emoji create | 6 in 10 s | Remove dangerous permissions |
+| Emoji delete | 4 in 10 s | Remove dangerous permissions |
+| Member ban | 5 in 10 s | Ban |
+| Member kick | 5 in 10 s | Kick |
+| Bot additions | 2 in 30 s | Kick |
+| Server settings changes | 3 in 30 s | Remove dangerous permissions |
+| Dangerous role permissions | 2 in 30 s | Remove dangerous permissions |
+
+For every protection you can change the number of actions, the time window and the response, and switch it on or off. **Enable all** and **Disable all** change them in bulk.
+
+### Restore
+
+For some protections (channel delete and role delete by default) ShieldCore can **undo the change automatically** when the protection triggers, so deleted channels and roles come back.
+
+## Exceptions
+
+Add people, roles and bots that Anti-Nuke must never punish under **Exceptions**. The server owner and ShieldCore are always trusted. Only the server owner or an administrator can change this list.
+
+<Warning>
+  Be careful who you trust. A trusted user or bot can delete channels without Anti-Nuke stepping in.
+</Warning>
+
+## Make sure it can act
+
+ShieldCore can only punish members whose roles are **below** its own. Keep the ShieldCore role high in your role list. See the [setup wizard](/dashboard/setup-wizard).

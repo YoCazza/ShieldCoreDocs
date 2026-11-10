@@ -1,0 +1,36 @@
+---
+title: "Logging"
+description: "See what happens in your server and send each kind of event to the right channel."
+---
+
+ShieldCore keeps two kinds of records: **Server Logs** in the dashboard and **Moderation Logs** posted to Discord channels.
+
+## Server Logs (dashboard)
+
+Open **Server Logs** to browse actions taken on your server. You can:
+
+- search by user, moderator, reason or action,
+- filter by action type,
+- watch new entries arrive **live** on page 1.
+
+Each row shows the action, the user, the moderator and the reason and time.
+
+## Moderation Logs (Discord)
+
+Enable the **Moderation Logs** module and open its settings to decide where events are posted.
+
+- **Per-event channels:** give each kind of event its own channel. Events without a channel are not logged.
+- **All events to one channel:** route everything to a single channel. This overrides per-event channels while on.
+- **Fast option per category:** set every event in a category to the same channel with one click.
+- **Moderation command logs:** a channel for entries created by moderation commands.
+- **Show user avatars:** include avatars in log embeds.
+
+<Tip>
+  Put sensitive logs in a channel only moderators can see. The [setup wizard](/dashboard/setup-wizard) lets moderators see the main log channel automatically.
+</Tip>
+
+## Other logs
+
+- **AutoMod log:** set under [AutoMod](/security/automod).
+- **Anti-Nuke incidents:** shown with the protection that triggered. See [Anti-Nuke](/security/anti-nuke).
+- **Dashboard changes:** see the [audit log](/settings/audit-log).

@@ -1,0 +1,28 @@
+---
+title: "Automatic Role"
+description: "Give or remove roles automatically when someone joins."
+---
+
+Automatic Role applies roles to new members the moment they join, so you do not have to do it by hand.
+
+## Set it up
+
+<Steps>
+  <Step title="Enable the module">
+    Turn on **Automatic Role** under **Modules**, then open its settings.
+  </Step>
+  <Step title="Add a rule">
+    Choose **Add role** to give a role on join, or **Remove role** to take one away. You can create several rules, so one join can add more than one role.
+  </Step>
+  <Step title="Save">
+    Save your changes.
+  </Step>
+</Steps>
+
+<Warning>
+  ShieldCore can only assign roles that are **below** its own role in the role list. If a rule does not work, move the ShieldCore role higher.
+</Warning>
+
+<Tip>
+  Combine this with a [workflow](/automation/workflows) if you want conditions, for example only act when the account is younger than a number of days.
+</Tip>

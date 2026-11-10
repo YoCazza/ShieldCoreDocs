@@ -1,0 +1,73 @@
+---
+title: "Workflows"
+description: "Build automations visually: when something happens, check conditions, then act."
+---
+
+Workflows let you automate your server without code. You connect blocks on a canvas: a **trigger** starts the workflow, optional **conditions** filter it, and **actions** do the work.
+
+Open **Workflows** in the sidebar (under **Builders**).
+
+## Building blocks
+
+<Tabs>
+  <Tab title="Triggers">
+    - **Schedule:** at a set time, on chosen weekdays, in your timezone.
+    - **Member joined / left**
+    - **Message sent**
+    - **Member banned / unbanned**
+    - **Role added / removed**
+    - **Voice channel joined / left**
+    - **Reaction added**
+  </Tab>
+  <Tab title="Conditions">
+    - **Account age:** only when the account is younger than a set age.
+    - **Has role / Doesn't have role**
+    - **Member is bot / human**
+    - **Channel is**
+    - **Message contains**, **contains a link**, **contains a mention**, or has a certain **length**
+  </Tab>
+  <Tab title="Actions">
+    - **Roles:** give or remove a role.
+    - **Moderation:** timeout, kick, ban, unban or warn a member.
+    - **Messages:** send a message to a channel, DM a member, reply to, react to or delete the triggering message.
+    - **Channels:** lock or unlock, set slowmode, rename, or clear a channel.
+    - **Nickname:** change a member's nickname.
+    - **Webhook:** send event data as JSON to your own URL (not a Discord webhook).
+  </Tab>
+  <Tab title="Flow">
+    - **Delay:** wait before continuing.
+    - **Yes / No branch:** split into two paths.
+    - **Stop workflow:** end it immediately.
+  </Tab>
+</Tabs>
+
+## Create a workflow
+
+<Steps>
+  <Step title="Start from a preset or a blank canvas">
+    Presets cover common jobs such as clearing a channel daily, locking a channel at night or enabling slowmode when it is busy.
+  </Step>
+  <Step title="Add and connect blocks">
+    Pick a trigger, add conditions and actions, and fill in their settings.
+  </Step>
+  <Step title="Test it">
+    Use the test run to see what the workflow would do.
+  </Step>
+  <Step title="Publish">
+    The publish wizard runs checks and explains what the workflow will do with an example, then turns it on.
+  </Step>
+</Steps>
+
+An in-app tutorial (the **Need help?** button) walks through the builder step by step.
+
+## Schedule trigger
+
+Pick a time, the weekdays and a timezone. A preview shows the next run times. Daylight saving changes are handled for you.
+
+<Note>
+  A schedule has no member, message or channel attached, so it can only use server-wide steps such as sending a message to a fixed channel, clearing a channel or waiting. Clearing a channel only removes messages younger than 14 days (a Discord limit) and needs the **View Channel**, **Manage Messages** and **Read Message History** permissions.
+</Note>
+
+## Limits
+
+Free servers can have 2 active workflows at once; Premium servers 25. Workflows above the limit when Premium ends are saved but switched off. See [Free vs Premium](/plans).

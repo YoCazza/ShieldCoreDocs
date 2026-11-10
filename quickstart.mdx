@@ -1,47 +1,53 @@
 ---
 title: "Quickstart"
-description: "Begin with a guide on the fastest path to a successful outcome"
+description: "Add ShieldCore to your server and have it protecting your community in a few minutes."
 ---
 
-Describe how someone begins using your product. What is the first thing they need to do? Are there any prerequisites?
+## Before you begin
 
-A quickstart should take someone from zero to using your product. They'll get a quick win and a sense of what they can accomplish.
+You need:
 
-## Prerequisites
+- A Discord account with the **Manage Server** permission (or ownership) on the server you want to protect.
+- A few minutes to walk through the setup wizard.
 
-Before you begin, you must have:
-
-- Requirement one (for example, Node.js 18+, a free account, an API key)
-- Requirement two (for example, a compatible device, a compatible browser, a compatible operating system)
-
-## Get started
+## Set up ShieldCore
 
 <Steps>
-  <Step title="Install">
-    Describe how to install your product or sign up.
-
-    ```bash
-    npm install your-package
-    ```
+  <Step title="Add the bot to your server">
+    Open [shieldcore.app](https://shieldcore.app), log in with Discord and choose **Add to Discord**. Pick your server and accept the permissions.
   </Step>
-  <Step title="Configure">
-    Describe any setup or configuration needed before first use.
-
-    ```bash
-    your-cli init
-    ```
+  <Step title="Open the dashboard">
+    After inviting the bot, select your server in the dashboard. The first time, ShieldCore starts the [setup wizard](/dashboard/setup-wizard) and keeps the rest of the sidebar locked until you finish it.
   </Step>
-  <Step title="Run it">
-    Show the first thing a user does to see it working.
-
-    ```bash
-    your-cli start
-    ```
+  <Step title="Fix the role order if asked">
+    ShieldCore can only manage roles below its own. In Discord, open **Server Settings → Roles** and drag the **ShieldCore** role above the roles it must manage, then press **Check again** in the wizard.
+  </Step>
+  <Step title="Choose a protection level">
+    Pick how strongly ShieldCore should protect your server. This switches on [AutoMod](/security/automod) and [Anti-Nuke](/security/anti-nuke) with a matching preset. You can change every detail afterwards.
+  </Step>
+  <Step title="Pick a log channel and moderator roles">
+    Choose where ShieldCore posts what happens, and optionally which roles are your moderators. Moderator roles are skipped by AutoMod and can see the log channel.
+  </Step>
+  <Step title="Turn on your modules">
+    Open **Modules** in the sidebar and enable what you need, for example [Tickets](/modules/tickets), [Welcome & Leave](/modules/welcome-leave) or [Giveaway](/modules/giveaway).
   </Step>
 </Steps>
 
 <Tip>
-  Give people a way to get help. This could be a link to a support page, a chat with a customer support agent, or a forum for your product.
-
-  Example: Need help? Reach out to us at [support@yourcompany.com](mailto:support@yourcompany.com).
+  Create a [backup](/security/backups) once your server is set up the way you like it. If something ever goes wrong, you can restore from it.
 </Tip>
+
+## What to read next
+
+<CardGroup cols={2}>
+  <Card title="Dashboard tour" icon="table-columns" href="/dashboard/overview">
+    Learn where everything lives.
+  </Card>
+  <Card title="Free vs Premium" icon="crown" href="/plans">
+    See the limits and what Premium adds.
+  </Card>
+</CardGroup>
+
+<Note>
+  Stuck? Join the [support server](https://discord.com/invite/FnaGHu2eEb) and ask.
+</Note>

@@ -1,0 +1,31 @@
+---
+title: "Setup wizard"
+description: "The four steps that get a new server protected."
+---
+
+When you open a server for the first time, ShieldCore walks you through four short steps. You can come back to it later from **Setup** in the sidebar.
+
+<Steps>
+  <Step title="Language">
+    Choose the dashboard language. You can change it later in [Settings](/settings/general).
+  </Step>
+  <Step title="Bot check">
+    ShieldCore checks that it has the permissions it needs and that its role is high enough in your role list.
+
+    If the check fails:
+    1. Open **Server Settings → Roles** in Discord.
+    2. Find the **ShieldCore** role.
+    3. Drag it above the roles ShieldCore must manage.
+    4. Save, then press **Check again**.
+  </Step>
+  <Step title="Protection">
+    Choose how strongly ShieldCore should protect the server. This turns on [AutoMod](/security/automod) (spam, caps, invites, mass mentions, bad language) and [Anti-Nuke](/security/anti-nuke) (stops people who mass-delete or mass-ban) with matching settings.
+  </Step>
+  <Step title="Logs and roles">
+    Pick the channel where ShieldCore reports what happens, and optionally your moderator roles. AutoMod skips moderators and they can see the log channel.
+  </Step>
+</Steps>
+
+<Tip>
+  You are not locked in. Every choice here can be changed later on the AutoMod and Anti-Nuke pages.
+</Tip>

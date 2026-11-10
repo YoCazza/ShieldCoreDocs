@@ -1,0 +1,32 @@
+---
+title: "Custom bot troubleshooting"
+description: "Fix the most common problems with a custom bot."
+---
+
+Open **Settings → Own bot → Console** or **Log** first. Errors are listed with a short code and what to do.
+
+<AccordionGroup>
+  <Accordion title="The bot will not start">
+    - Check that the token is correct. Reset it in the Developer Portal and paste the new one.
+    - Make sure **Server Members Intent** and **Message Content Intent** are switched on.
+    - Make sure the bot has been invited to the server.
+    - Confirm that the server has active Premium.
+  </Accordion>
+  <Accordion title="The bot is online but commands do not appear">
+    Wait a minute and restart Discord. Check that your bot is in the server and that ShieldCore's console shows no errors.
+  </Accordion>
+  <Accordion title="Buttons on old messages do nothing">
+    They belong to the previous bot. Use the **Move** tab to post them again with your bot.
+  </Accordion>
+  <Accordion title="Roles are not assigned or members are not punished">
+    Your bot's role must be above the roles it manages. Move it higher in **Server Settings → Roles**.
+  </Accordion>
+  <Accordion title="The name or avatar is not what I want">
+    Change them in the Discord Developer Portal. They are not set in the ShieldCore dashboard.
+  </Accordion>
+  <Accordion title="My token leaked">
+    Reset it in the Developer Portal right away and paste the new token in the dashboard.
+  </Accordion>
+</AccordionGroup>
+
+Still stuck? Ask in the [support server](https://discord.com/invite/FnaGHu2eEb) and include the error code from your log.

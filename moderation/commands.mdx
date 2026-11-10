@@ -1,0 +1,53 @@
+---
+title: "Slash commands"
+description: "Every built-in ShieldCore command and what it does."
+---
+
+ShieldCore's commands are Discord **slash commands**: type `/` in a channel and pick one. Use `/help` in your server to see the list your members can use.
+
+## Moderation
+
+| Command | What it does |
+| --- | --- |
+| `/warn` | Warn a user. Warnings add up toward the [AutoMod](/security/automod) punishment. |
+| `/clearwarns` | Reset a member's warning count to 0. |
+| `/timeout` | Time a member out for a set duration. |
+| `/untimeout` | Remove a timeout. |
+| `/kick` | Kick a user. |
+| `/ban` | Ban a user. |
+| `/softban` | Ban and immediately unban to remove recent messages (0–7 days). |
+| `/unban` | Unban a user by user ID. |
+| `/addrole` and `/removerole` | Give or remove a role from a member. |
+| `/nickname` | Change a member's nickname (1–32 characters). |
+
+## Channel management
+
+| Command | What it does |
+| --- | --- |
+| `/lock` and `/unlock` | Lock or unlock the current channel for `@everyone`. |
+| `/slowmode` | Set or disable slowmode for a channel. |
+| `/clear` and `/purge` | Bulk delete messages from the current channel. |
+| `/purgeuser` | Delete recent messages from one specific user in this channel. |
+
+## Information and community
+
+| Command | What it does |
+| --- | --- |
+| `/help` | Show all available slash commands. |
+| `/ping` | Show how fast the bot responds. |
+| `/avatar` and `/banner` | Show a user's avatar or banner. |
+| `/activity` | See who is most active: a leaderboard or personal stats. |
+| `/suggest` | Share an idea. Needs the [Suggestions](/modules/suggestions) module. |
+| `/giveaway` | Create and manage giveaways. Needs the [Giveaway](/modules/giveaway) module. |
+| `/ticket` | Manage the current ticket. See [Tickets](/modules/tickets). |
+| `/settings` | View or change server settings. |
+
+<Note>
+  Moderation commands follow Discord permissions: members need the matching permission (for example Ban Members for `/ban`), and ShieldCore's role must be above the target's highest role.
+</Note>
+
+Every moderation command is recorded in the [moderation logs](/moderation/logging), including who did it and why.
+
+## Your own commands
+
+You can add commands that are not on this list with the [Command Builder](/automation/command-builder).

@@ -1,0 +1,67 @@
+---
+title: "AutoMod"
+description: "Automatically remove spam, unwanted links, invites, mass mentions and bad language."
+---
+
+AutoMod checks every message in your server and reacts the moment a rule is broken. You can switch each protection on or off separately, choose what happens, and exempt trusted people.
+
+Open it from **AutoMod** in the sidebar. A master switch turns the whole module on or off, and your settings are kept while it is off.
+
+## Protections
+
+<AccordionGroup>
+  <Accordion title="Profanity filter">
+    Blocks words you list. Options:
+    - **Whole words only** matches a word only on its own, so a blocked word does not trigger on a longer word that contains it.
+    - **Catch disguised spelling** also finds variations such as numbers for letters, stretched letters, dots between letters and accented spelling.
+  </Accordion>
+  <Accordion title="Anti spam">
+    Stops message bursts. Set how many messages are allowed within how many seconds, and optionally a minimum gap between messages. It can also catch **the same message posted in several channels** within a time window, which is typical for hacked accounts. Set that to 0 to switch it off.
+  </Accordion>
+  <Accordion title="Anti caps">
+    Flags messages with too many capital letters. You set the maximum percentage and the minimum message length, so short messages like "OK" are ignored. A live preview lets you type a test message and see whether it would trigger.
+  </Accordion>
+  <Accordion title="Anti invite">
+    Removes Discord invite links. Invites to your own server are always allowed. You can edit the blocked patterns, one per line.
+  </Accordion>
+  <Accordion title="Anti mention">
+    Stops mass mentions. You set how many mentions one message may contain.
+  </Accordion>
+  <Accordion title="Link filter">
+    Controls links in two modes:
+    - **Block the listed domains**, or
+    - **Block all links except allowed ones**.
+
+    Extra options: block link shorteners, block fake Discord and Steam look-alike links (on by default), and block links from members who joined less than a set number of minutes ago.
+  </Accordion>
+</AccordionGroup>
+
+## What happens when a rule is broken
+
+Each protection has its own response:
+
+| Setting | Meaning |
+| --- | --- |
+| **Action** | *Message only* (just handle the message), *Warn* (add a warning to the member) or *Direct timeout* (time the member out right away). |
+| **Delete message** | Remove the offending message immediately. |
+| **Send warning** | Post a warning in the channel. You can edit the text. Use `{userTag}` to mention the member. |
+| **DM the member** | Send the warning as a direct message too, or instead. If their DMs are closed it falls back to the channel. |
+| **Timeout length** | How long a direct timeout lasts for this protection. 0 uses the general length. |
+| **Log** | Whether this protection writes to the AutoMod log. |
+| **Bypass roles / channels** | Exempt roles or channels for this protection only. |
+
+## General settings
+
+- **Log channel:** where AutoMod reports what it did.
+- **Warn limit and action:** how many warnings lead to an automatic punishment (timeout, kick or ban), and the timeout length.
+- **Warning expiry:** after how many days warnings expire. 0 means never.
+- **Strikes and rounds:** build a punishment ladder, with a different action for each round.
+- **Tell the member:** optionally notify people about a punishment with a message that can use `{action}` and `{reason}`.
+
+## Who is exempt
+
+Under **Bypass permissions** you set roles, users and channels that AutoMod ignores, once for the whole module. The server owner and ShieldCore itself are always trusted. Only the server owner or an administrator can change these lists.
+
+<Tip>
+  Start with spam, invites and mass mentions. Add the profanity filter and link filter once you know how your community talks.
+</Tip>

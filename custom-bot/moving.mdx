@@ -1,0 +1,36 @@
+---
+title: "Switch to your own bot and back"
+description: "Move your embeds, panels and giveaways between ShieldCore and your own bot."
+---
+
+Messages with buttons or dropdowns belong to the bot that posted them. When you switch bots, those messages must be posted again by the new bot. The **Move** tab guides you.
+
+## Move to your own bot
+
+<Steps>
+  <Step title="Check roles and channels">
+    ShieldCore checks that your bot has what it needs.
+  </Step>
+  <Step title="Move messages with buttons">
+    Your bot reposts your embeds with buttons, and active giveaways, using the same buttons. Reactions are set again, and the old messages are removed.
+  </Step>
+  <Step title="Make a safety backup">
+    Create a [backup](/security/backups) before the final step.
+  </Step>
+  <Step title="Remove ShieldCore from the server">
+    This is the final step. Until you click it, your own bot keeps running and ShieldCore stays quiet.
+  </Step>
+</Steps>
+
+<Note>
+  Your settings, tickets, statistics and giveaways are kept when ShieldCore leaves. See [Data and privacy](/help/data-and-privacy).
+</Note>
+
+## Move back to ShieldCore
+
+Switching back works the same way in reverse: add ShieldCore to the server, move the messages back (including ticket panels), then switch over. The tab shows **Runs on your own bot** or **Runs on ShieldCore** so you always know which one is in charge.
+
+## Limits
+
+- Embeds and components are copied. File attachments are not.
+- Each custom bot runs as its own process, so starting it can take a moment.

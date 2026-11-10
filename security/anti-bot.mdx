@@ -1,0 +1,40 @@
+---
+title: "Anti-Bot"
+description: "A trap channel that catches hacked accounts and malicious bots instantly."
+---
+
+Anti-Bot adds a **security channel** that real members never need to use. Compromised accounts and spam bots often post in every channel they can reach. The moment an account sends a message in the security channel, ShieldCore acts on it.
+
+Open it from **Anti-Bot** in the sidebar.
+
+## Set it up
+
+<Steps>
+  <Step title="Choose the channel">
+    Either let ShieldCore **create a security channel** (it creates or reuses `#sc-security`), or **use an existing channel**. Nothing changes in Discord until you click **Deploy**.
+  </Step>
+  <Step title="Choose the action">
+    Pick what happens the instant a member posts there:
+    - **Kick:** removes the member. They can rejoin with another invite.
+    - **Soft-ban:** bans, removes their messages, then immediately lets them rejoin.
+    - **Ban:** permanently bans the member.
+  </Step>
+  <Step title="Customize the warning">
+    Edit the title, color, text and footer of the warning embed that stays in the channel so real members know not to write there. A live preview shows the result.
+  </Step>
+  <Step title="Deploy">
+    Click **Deploy**. Later changes use **Save & Update**, which edits the existing message instead of posting a duplicate.
+  </Step>
+</Steps>
+
+## Permission checks
+
+ShieldCore validates the setup and tells you what is wrong. It must be able to view the channel, send messages, embed links and manage messages, and it needs permission to kick and ban. Use **Fix permissions** to correct the channel permissions.
+
+<Note>
+  If `@everyone` cannot view the channel, some compromised accounts may never see it, so they will not trigger Anti-Bot.
+</Note>
+
+## Activity
+
+The page shows total actions, bans, soft-bans and kicks, plus a list of recent detections with the result: success, failed, blocked by role hierarchy, member already gone, or a protected server owner.

@@ -1,0 +1,44 @@
+---
+title: "Custom bot"
+description: "Run ShieldCore as your own Discord bot, with your own name and avatar."
+---
+
+<Note>
+  The custom bot is a **Premium** feature. It is available with every Premium subscription, one bot per server.
+</Note>
+
+With a custom bot, ShieldCore runs under **your own Discord application**. Members see your bot's name and avatar instead of ShieldCore's, while all features keep working and you keep using the same dashboard.
+
+## How it works
+
+You create a bot in the Discord Developer Portal and give ShieldCore its **token**. ShieldCore then runs your bot in its own process for your server.
+
+- The token is stored **encrypted** and is never shown again. You can replace or remove it any time.
+- ShieldCore decides which bot is in charge of a server. Your own bot takes over when your server has Premium, your bot is online and it is in the server.
+- Everything is managed under **Settings → Own bot**.
+
+## What you get on the Own bot tab
+
+| Area | Purpose |
+| --- | --- |
+| **Status and buttons** | See whether your bot is running, and start or stop it. |
+| **Set up** | A three-step guide: create the bot, invite it, start it. |
+| **Move** | Step-by-step help to switch to your bot, or back to ShieldCore. |
+| **Console** | A live view of what your bot is doing while it starts. |
+| **Log** | A history of lifecycle events and errors. |
+| **Settings** | Presence (status text with a preview), replace the token, remove the custom bot. |
+
+<CardGroup cols={2}>
+  <Card title="Set up your bot" icon="wand-magic-sparkles" href="/custom-bot/setup">
+    Create the application, add the token and start.
+  </Card>
+  <Card title="Move your messages" icon="right-left" href="/custom-bot/moving">
+    Switch over without losing your panels.
+  </Card>
+</CardGroup>
+
+## Good to know
+
+- Your bot's **name and avatar** are set in the Discord Developer Portal.
+- When moving messages, embeds, buttons and components are copied. File attachments are not.
+- If your Premium ends, ShieldCore stops running your bot. See [Free vs Premium](/plans).

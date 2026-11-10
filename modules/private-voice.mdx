@@ -1,0 +1,29 @@
+---
+title: "Private Voice"
+description: "Let members create and manage their own temporary voice channels."
+---
+
+Members join a **trigger channel** and instantly get their own voice channel with a control panel. When the last person leaves, the channel can delete itself.
+
+## Configure it
+
+<Steps>
+  <Step title="Choose where channels come from">
+    Pick the **category** for new channels (they inherit its permissions) and the **trigger channel** members join to create one. If none exist, create them in Discord first.
+  </Step>
+  <Step title="Set the starting point">
+    - **Name template:** use `{username}`, `{displayname}` and `{servername}`.
+    - **User limit:** 0 means unlimited, up to 99.
+    - **Privacy:** *Public* (anyone who can see the category can join) or *Private* (locked and hidden; only the owner, invited members, moderators and admins get in). Owners can change this later.
+  </Step>
+  <Step title="Decide what happens to channels">
+    - **Auto delete** when the last member leaves.
+    - **Transfer on leave:** the next eligible member becomes the owner.
+    - **Allow claim:** members in a channel whose owner left can take over with the **Claim** button.
+  </Step>
+  <Step title="Choose owner controls">
+    Allow owners to **rename**, **set a limit** and **lock** their channel. Discord allows two renames per 10 minutes.
+  </Step>
+</Steps>
+
+Administrators and the moderator role can always manage every temporary channel. Free servers can have 5 active private channels at once; Premium 50.
