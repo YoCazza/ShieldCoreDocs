@@ -1,0 +1,353 @@
+---
+title: "Command list"
+description: "Every ShieldCore slash command, its options and who can use it."
+---
+
+ShieldCore uses Discord **slash commands**: type `/` in a channel and pick one. Options in `[brackets]` are optional. `/help` shows the same list inside Discord.
+
+Commands reply in the [bot language](/settings/general#bot-language) of your server.
+
+## Quick overview
+
+| Command | What it does | Who can use it |
+| --- | --- | --- |
+| [`/ban`](#ban) | Ban a user | Ban Members |
+| [`/unban`](#unban) | Unban a user by ID | Ban Members |
+| [`/softban`](#softban) | Ban and unban to remove recent messages | Ban Members |
+| [`/kick`](#kick) | Kick a user | Kick Members |
+| [`/timeout`](#timeout) | Time a member out | Moderate Members |
+| [`/untimeout`](#untimeout) | Remove a timeout | Moderate Members |
+| [`/warn`](#warn) | Warn a user | Moderate Members |
+| [`/clearwarns`](#clearwarns) | Reset someone's warnings to 0 | Moderate Members |
+| [`/addrole`](#addrole) | Give a role | Manage Roles |
+| [`/removerole`](#removerole) | Remove a role | Manage Roles |
+| [`/temprole`](#temprole) | Give a role for a limited time | Manage Roles |
+| [`/nickname`](#nickname) | Change a nickname | Manage Nicknames |
+| [`/lock`](#lock) | Lock the channel for `@everyone` | Manage Roles |
+| [`/unlock`](#unlock) | Unlock the channel | Manage Roles |
+| [`/slowmode`](#slowmode) | Set or remove slowmode | Manage Channels |
+| [`/clear`](#clear) | Delete a number of messages | Manage Messages |
+| [`/purge`](#purge) | Delete messages with filters | Manage Messages |
+| [`/purgeuser`](#purgeuser) | Delete one user's recent messages | Manage Messages |
+| [`/ticket`](#ticket) | Manage the current ticket | Ticket staff |
+| [`/giveaway`](#giveaway) | Start or reroll giveaways | Manage Server |
+| [`/config`](#config) | Change the bot language | Administrator |
+| [`/settings`](#settings) | View or set the modlog channel | Manage Server |
+| [`/levels`](#levels) | Show a rank card | Everyone |
+| [`/leaderboard`](#leaderboard) | Show the XP leaderboard | Everyone |
+| [`/activity`](#activity) | Activity leaderboard and stats | Everyone |
+| [`/suggest`](#suggest) | Share an idea | Everyone |
+| [`/avatar`](#avatar) | Show someone's avatar | Everyone |
+| [`/banner`](#banner) | Show someone's profile banner | Everyone |
+| [`/ping`](#ping) | Show how fast the bot responds | Everyone |
+| [`/help`](#help) | Show all commands | Everyone |
+
+<Note>
+  Besides the permission listed, Discord's role order applies: you can only act on members whose highest role is below yours, and ShieldCore's role must be above the member or role it changes. You can also change who sees a command in Discord under **Server Settings → Integrations → ShieldCore**.
+</Note>
+
+## Moderation
+
+Every moderation action is posted to the **Moderator Commands** log and most create a case. See [Logging](/moderation/logging).
+
+### /ban
+
+Ban a user from the server.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | User to ban |
+| `reason` | No | Reason |
+
+### /unban
+
+Unban a user by their user ID.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user_id` | Yes | User ID of the banned user |
+| `reason` | No | Reason |
+
+### /softban
+
+Ban a member and immediately unban them, to remove their recent messages. They can rejoin with an invite.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member to soft-ban |
+| `delete_message_days` | No | Days of messages to delete (0–7) |
+| `reason` | No | Reason |
+
+### /kick
+
+Kick a user from the server.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | User to kick |
+| `reason` | No | Reason |
+
+### /timeout
+
+Time a member out so they cannot chat or talk.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | User to time out |
+| `minutes` | Yes | How many minutes |
+| `reason` | No | Reason |
+
+### /untimeout
+
+Remove a timeout early.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member to untimeout |
+| `reason` | No | Reason |
+
+### /warn
+
+Give a member a warning. When warnings reach the limit you set, ShieldCore applies the action you chose (timeout, kick or ban). Set the limit and action under **Commands** in the dashboard. If the action is a kick or ban, you also need that permission.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | User to warn |
+| `reason` | No | Reason |
+
+### /clearwarns
+
+Reset a member's warning count to 0.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member whose warnings are reset |
+| `reason` | No | Reason |
+
+## Roles and members
+
+### /addrole
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member who gets the role |
+| `role` | Yes | Role to give |
+| `reason` | No | Reason |
+
+### /removerole
+
+Removing a role that was given with `/temprole` also stops its timer.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member to remove the role from |
+| `role` | Yes | Role to remove |
+| `reason` | No | Reason |
+
+### /temprole
+
+Give a member a role for a limited time. ShieldCore removes it automatically when the time is up, also after a restart.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member who gets the role |
+| `role` | Yes | Role to give |
+| `duration` | Yes | How long, for example `30m`, `12h`, `7d`, `2w` or `1d12h`. From 1 minute to 365 days. |
+| `reason` | No | Reason |
+
+- The reply shows when the role expires, in everyone's own timezone.
+- Running `/temprole` again for the same member and role **extends or shortens** the time.
+- A role the member already has permanently is not made temporary. Use `/removerole` first if that is what you want.
+
+### /nickname
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | Member whose nickname to change |
+| `nickname` | Yes | New nickname (1–32 characters) |
+| `reason` | No | Reason |
+
+## Channels and messages
+
+### /lock
+
+Lock the current channel so `@everyone` cannot send messages. You can change the message posted in the channel and the reply to the moderator under **Commands** in the dashboard.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `reason` | No | Reason |
+
+### /unlock
+
+Unlock the current channel again. Same options and templates as `/lock`.
+
+### /slowmode
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `seconds` | Yes | Delay in seconds (0–21600). 0 turns slowmode off. |
+| `channel` | No | Channel to change. Default: the current channel. |
+
+### /clear
+
+Delete a number of recent messages from the current channel.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `amount` | Yes | Number of messages (1–100) |
+| `reason` | No | Reason |
+
+### /purge
+
+Bulk delete messages with filters.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `amount` | Yes | Number of messages (1–100) |
+| `user` | No | Only messages by this user |
+| `contains` | No | Only messages containing this text |
+| `bots_only` | No | Only messages sent by bots |
+| `attachments_only` | No | Only messages with attachments |
+
+### /purgeuser
+
+Delete recent messages by one user in this channel.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | Yes | User whose messages are deleted |
+| `amount` | No | How many messages to check (1–100) |
+
+<Note>
+  Discord only allows bulk deleting messages younger than 14 days.
+</Note>
+
+## Tickets
+
+### /ticket
+
+Use these inside a ticket channel. Staff are the members with a staff role for that ticket type. See [Tickets](/modules/tickets).
+
+| Subcommand | Options | What it does |
+| --- | --- | --- |
+| `/ticket claim` | | Claim the ticket so everyone knows you handle it. |
+| `/ticket unclaim` | | Remove your claim. |
+| `/ticket rename` | `name` | Rename the ticket channel. |
+| `/ticket add` | `user`, `[user_id]` | Add someone to the ticket. |
+| `/ticket remove` | `user`, `[user_id]` | Remove someone from the ticket. |
+| `/ticket move` | `category`, `[keep_access]`, `[reason]` | Move the ticket to another ticket category, for example from Support to Management. |
+| `/ticket close` | `[reason]` | Close the ticket. The reason appears in the history and the transcript. |
+
+About `/ticket move`:
+- Pick the category from the suggestions while you type.
+- The staff roles of the new category get access and the channel moves to the matching Discord category.
+- By default the old staff roles lose access. Set `keep_access` to true to keep them.
+- A claim is released. The person who opened the ticket gets a notice in the ticket, and the new staff roles are pinged.
+
+## Community
+
+### /giveaway
+
+Requires **Manage Server**. See [Giveaway](/modules/giveaway).
+
+**`/giveaway start`**
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `channel` | Yes | Where to post the giveaway |
+| `winners` | Yes | Number of winners |
+| `duration` | Yes | For example `10m`, `2h`, `7d`. Up to 31 days. |
+| `prize` | Yes | What members can win |
+| `title` | No | Giveaway title |
+| `description` | No | Extra description |
+| `message_type` | No | Embed or plain message |
+| `required_role` | No | Only members with this role can enter |
+| `min_account_days` | No | Discord account must be at least this many days old (helps against alt accounts) |
+| `min_member_days` | No | Must have been in the server at least this many days |
+| `boosters_only` | No | Only server boosters can enter |
+| `bonus_role` | No | Members with this role get extra entries |
+| `bonus_entries` | No | Extra entries for the bonus role (default 1) |
+| `blocked_role` | No | Members with this role cannot enter |
+| `claim_hours` | No | Winners must claim within this many hours, or a new winner is drawn |
+
+**`/giveaway reroll`**
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `message_id` | No | Message ID of the giveaway. Empty uses the latest ended giveaway. |
+
+### /levels
+
+Show your rank card, or that of another member. Needs the [Levels](/modules/levels) module.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `user` | No | Member to look up |
+
+### /leaderboard
+
+Show the members with the most XP, 10 per page. Needs the [Levels](/modules/levels) module.
+
+| Option | Required | Description |
+| --- | --- | --- |
+| `page` | No | Page number |
+
+### /activity
+
+See who is most active in messages, voice and reactions.
+
+| Subcommand | Options | What it does |
+| --- | --- | --- |
+| `/activity leaderboard` | | Top 10 for messages, voice and reactions. |
+| `/activity me` | | Your own activity. |
+| `/activity user` | `member` | Activity of another member. |
+
+### /suggest
+
+Share an idea. It is posted with vote buttons and a discussion thread. Needs the [Suggestions](/modules/suggestions) module.
+
+## Server settings
+
+### /config
+
+Requires **Administrator**.
+
+| Subcommand | Options | What it does |
+| --- | --- | --- |
+| `/config language` | `language` | The language of the bot's replies, logs and messages: Nederlands, English, Français, Deutsch, or **Automatic** (follows your server's Discord language). |
+
+You can also change this in the dashboard. See [Bot language](/settings/general#bot-language).
+
+### /settings
+
+Requires **Manage Server**.
+
+| Subcommand | Options | What it does |
+| --- | --- | --- |
+| `/settings view` | | Show the current settings. |
+| `/settings set` | `key`, `channel` | Set the modlog channel. |
+
+## Utility
+
+### /avatar
+
+Show a user's avatar. Option: `[user]` (default: you).
+
+### /banner
+
+Show a user's profile banner. Option: `[user]` (default: you).
+
+### /ping
+
+Show how fast the bot responds.
+
+### /help
+
+Show all available slash commands.
+
+## Commands in the dashboard
+
+Open **Commands** in the sidebar to see this list in the dashboard. It has two tabs:
+
+- **Built-in commands:** search and filter by category, and configure the commands that have settings: the `/lock` and `/unlock` messages, the warning limit and action for `/warn`, and the modlog channel for `/settings`. Message templates can use `{adminName}`, `{adminTag}`, `{adminId}`, `{reason}`, `{channelName}` and `{channelId}`.
+- **Custom commands:** the commands you made yourself. See [Command Builder](/automation/command-builder).

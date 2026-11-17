@@ -10,6 +10,7 @@ Open **Settings** in the sidebar. The tabs are **General**, **Bot**, **Own bot**
 | Setting | What it does |
 | --- | --- |
 | **Language** | The dashboard language: English, Dutch, German or French. |
+| **Bot language** | The language the bot uses in Discord. See [Bot language](#bot-language) below. |
 | **Command prefix** | Used for message-based commands. Up to 16 characters, cannot be empty. |
 | **Timezone** | Used by scheduled and time-based features such as [workflow schedules](/automation/workflows). |
 | **Theme** | The look of your dashboard. Includes dark, light, midnight, slate, forest, amethyst, copper, OLED, nord, ocean, sunset, daylight, latte and high contrast. Some themes need Premium. |
@@ -18,11 +19,22 @@ Open **Settings** in the sidebar. The tabs are **General**, **Bot**, **Own bot**
   Themes are a personal preference of your account, so they stay when a server's Premium ends.
 </Note>
 
+## Bot language
+
+ShieldCore speaks **English, Dutch, German and French** in Discord: command replies, logs, panels, welcome texts and command descriptions all follow the bot language.
+
+- **Automatic (server language):** the default. ShieldCore uses your server's Discord language if it is one of the four, otherwise English.
+- **A fixed language:** pick one to override that.
+
+Change it under **Settings → General**, or in Discord with `/config language`. Only members with **Administrator** can change it. The bot uses the new language within a minute.
+
+The dashboard language is separate: it is a personal choice for your own dashboard, while the bot language applies to the whole server.
+
 ## Other tabs
 
 <CardGroup cols={2}>
   <Card title="Bot identity" icon="id-badge" href="/settings/bot-identity">
-    Nickname, avatar, banner and bio (Premium).
+    Nickname, avatar, banner and bio.
   </Card>
   <Card title="Own bot" icon="robot" href="/custom-bot/overview">
     Run ShieldCore as your own bot.

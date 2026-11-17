@@ -1,29 +1,39 @@
 ---
 title: "Bot identity"
-description: "Change how ShieldCore looks in your server."
+description: "Change how ShieldCore looks in your server: nickname, avatar, banner and bio."
 ---
 
-<Note>
-  Bot identity is a **Premium** feature.
-</Note>
-
-Under **Settings → Bot** you can customize how ShieldCore appears on Discord in your server.
+Under **Settings → Bot** you can change how ShieldCore appears in your server. This is available on **every plan**, including Free.
 
 ## What you can change
 
 | Field | Limits |
 | --- | --- |
 | **Nickname** | Up to 32 characters. |
-| **Bio** | Up to 190 characters. |
-| **Avatar** | PNG, JPEG, WEBP, GIF or AVIF. Max 1.2 MB, 320×320 recommended. |
-| **Banner** | PNG, JPEG, WEBP, GIF or AVIF. Max 2.4 MB, 960×360 recommended. |
+| **Avatar** | PNG, JPEG, WEBP, GIF or AVIF. Max 1.2 MB, 320 × 320 recommended. |
+| **Banner** | PNG, JPEG, WEBP, GIF or AVIF. Max 2.4 MB, 960 × 360 recommended. |
+| **Bio** | Your own text, up to 141 characters, followed by a fixed ShieldCore line. |
 
-Upload an image or paste a URL. An editor lets you drag and zoom to crop the image, and a **live preview** shows your bot's profile as Discord will display it.
+Upload an image or paste a URL. An editor lets you drag and zoom to crop it, and a **live preview** shows your bot's profile as Discord will display it.
+
+### The ShieldCore line in the bio
+
+The bio always ends with:
+
+```
+Protected by ShieldCore · https://shieldcore.app
+```
+
+This line is what makes bot identity free. It cannot be removed or changed. Discord allows 190 characters in a bio, so 141 are left for your own text. The preview shows the bio including this line.
 
 ## Syncing to Discord
 
 After you save, the change is **queued for sync**. Discord rate limits can make it take a moment. The sync status shows whether it is saving, queued or applied.
 
+## With a custom bot
+
+When your server runs on a [custom bot](/custom-bot/overview), bot identity does not apply. The Bot tab then tells you to change the name, picture, banner and bio of your own bot in the [Discord Developer Portal](https://discord.com/developers/applications). Your own bot has no ShieldCore line in its bio.
+
 <Tip>
-  Want a completely different bot name in the member list and the ability to invite your own application? Use a [custom bot](/custom-bot/overview).
+  Want your own bot name in the member list, without the ShieldCore line? Use a [custom bot](/custom-bot/overview) (Premium).
 </Tip>

@@ -1,21 +1,44 @@
 ---
 title: "Giveaway"
-description: "Run giveaways from the dashboard or with a command, with a public live page."
+description: "Run giveaways from the dashboard or with a command, with requirements, bonus entries and a public live page."
 ---
 
-Start giveaways from the dashboard or with `/giveaway`. Each giveaway gets a **public live tracking page** where people can follow entries and status.
+Start giveaways from the dashboard or with `/giveaway start`. Each giveaway gets a **public live page** where people can follow the entries and see the rules.
 
 ## Create a giveaway
 
-1. Open **Giveaway** from the Modules page.
-2. Choose **New giveaway** and configure it: prize, duration, channel and number of winners.
+1. Open **Giveaway** from the Modules page and choose **New giveaway**.
+2. Fill in the **prize**, **number of winners**, **duration** and **channel**. Optionally add a title and description.
 3. Pick the style: an **embed** (a cleaner card) or a **normal message**.
-4. Send it directly to a channel.
+4. Add requirements and extras if you want (see below), then send it.
+
+From Discord, `/giveaway start` has the same options. See the [command list](/commands/list#giveaway). Durations go up to 31 days.
+
+## Requirements and extras
+
+Everything here is optional. Leave it empty for a normal giveaway where everyone can enter.
+
+| Setting | What it does |
+| --- | --- |
+| **Required role** | Only members with this role can enter. |
+| **Minimum account age** | The Discord account must be at least this many days old. Helps against alt accounts. |
+| **Minimum time in this server** | Members must have been in the server at least this many days. |
+| **Server boosters only** | Only members who boost the server can enter. |
+| **Bonus entries for role** | Members with this role get extra entries, so a better chance to win. |
+| **Roles that cannot enter** | Members with these roles are blocked. |
+| **Claim time** | Winners must press **Claim** within this many hours, otherwise a new winner is drawn automatically. |
+
+The giveaway message and the public page show these rules, so entrants know what applies.
 
 ## Manage giveaways
 
-The sidebar lists your giveaways. Select one to see its **status, entries and management actions**. You can also manage them in Discord with `/giveaway`, including picking new winners.
+The list on the left shows all giveaways and how many are active. Select one to see:
 
-<Tip>
-  The public page shows the giveaway rules so entrants know what applies.
-</Tip>
+- its status and end time,
+- **entries over time**, including the busiest moment,
+- the **draw history**: the final draw, rerolls and automatic redraws when a claim time ran out,
+- **prize claims**: claimed, waiting or expired.
+
+To pick a new winner for an ended giveaway, reroll it from the dashboard or use `/giveaway reroll`. The new winner is drawn within a few seconds. **Copy draw link** gives you a link to share the result.
+
+`/giveaway` requires the **Manage Server** permission.

@@ -1,22 +1,42 @@
 ---
 title: "Creator Alerts"
-description: "Announce new YouTube videos and Twitch streams in Discord."
+description: "Announce new YouTube videos, Twitch streams, website posts and Steam game news in Discord."
 ---
 
-Creator Alerts posts a message when a creator you follow uploads a video or goes live.
+Creator Alerts posts a message in Discord when something new appears on a platform you follow.
+
+## Platforms
+
+| Platform | What you enter | When it alerts |
+| --- | --- | --- |
+| **YouTube** | A channel name or URL | A new video is uploaded. |
+| **Twitch** | A username or channel URL | The streamer goes live. |
+| **RSS / Atom** | A feed link, or just a website address (ShieldCore finds its feed) | A new post appears. Checked every 30 minutes. |
+| **Steam** | A Steam store link or the game's app ID | The game posts news or patch notes. Checked every 30 minutes. |
+
+When you add an RSS feed or Steam game, existing posts are saved but not announced, so your channel is not flooded on day one.
 
 ## Add an alert
 
 <Steps>
-  <Step title="Choose a platform">
-    Pick **YouTube** or **Twitch** and verify the creator before configuring the alert.
+  <Step title="Choose a platform and verify">
+    Press **Add Creator Alert**, pick the platform and enter the creator, feed or game. Press **Verify** so ShieldCore can confirm it exists before you continue.
   </Step>
   <Step title="Choose a channel">
-    Select where the announcement is posted.
+    Select the Discord channel to **send alerts to**.
   </Step>
-  <Step title="Customize the message">
-    Edit the message or embed so it fits your community. Use the preview to check it.
+  <Step title="Write the message">
+    Choose **Message**, **Embed** or **Message + Embed**. For an embed you can set the title, description, color, thumbnail, author, URL, footer and a timestamp. Click a variable to insert it at the cursor. The **live preview** shows the result.
+  </Step>
+  <Step title="Save">
+    Press **Save alert**. You can switch an alert off and on later without deleting it.
   </Step>
 </Steps>
+
+For RSS and Steam posts you can use `{posttitle}`, `{postlink}`, `{postdescription}` and `{thumbnail}`.
+
+An alert marked **Needs attention** has a problem, for example a deleted channel. Open it to fix it.
+
+## Limits
 
 Free servers can have 2 alerts; Premium servers 25. See [Free vs Premium](/plans).

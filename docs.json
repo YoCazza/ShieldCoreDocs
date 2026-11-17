@@ -27,6 +27,12 @@
         ]
       },
       {
+        "group": "Commands",
+        "pages": [
+          "commands/list"
+        ]
+      },
+      {
         "group": "Security",
         "pages": [
           "security/automod",
@@ -38,7 +44,6 @@
       {
         "group": "Moderation",
         "pages": [
-          "moderation/commands",
           "moderation/logging"
         ]
       },
@@ -51,6 +56,7 @@
           "modules/welcome-leave",
           "modules/reaction-roles",
           "modules/giveaway",
+          "modules/levels",
           "modules/creator-alerts",
           "modules/sticky-messages",
           "modules/private-voice",
@@ -149,5 +155,11 @@
   "styling": {
     "eyebrows": "section",
     "codeblocks": "dark"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/moderation/commands",
+      "destination": "/commands/list"
+    }
+  ]
 }

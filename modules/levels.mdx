@@ -1,0 +1,120 @@
+---
+title: "Levels"
+description: "Members earn XP by chatting, level up, collect role rewards and climb the leaderboard."
+---
+
+Levels rewards active members. Everyone earns XP by chatting, levels up over time and can show off a rank card with `/levels`. You decide where XP counts, which roles members get at certain levels and how the rank card looks.
+
+Levels is **free** for every server.
+
+<Steps>
+  <Step title="Turn it on">
+    Open **Modules**, switch on **Levels** and open its settings. The module page only shows the settings once the module is on.
+  </Step>
+  <Step title="Choose the level-up message">
+    Decide what happens when someone reaches a new level.
+  </Step>
+  <Step title="Add role rewards (optional)">
+    Give roles automatically at certain levels.
+  </Step>
+  <Step title="Design the rank card (optional)">
+    Make the `/levels` card match your server.
+  </Step>
+</Steps>
+
+Changes reach the bot within a minute.
+
+## How XP works
+
+- Every message gives **15 to 25 XP**, at most **once per minute** per member. Spamming does not help; chatting regularly does.
+- Bots, webhooks and system messages never earn XP.
+- The next level costs **5 × level² + 50 × level + 100** XP. The first levels go fast and higher levels take longer, so active members always have something to work towards.
+
+| Level | XP for this level | Total XP | About this many active minutes |
+| --- | --- | --- | --- |
+| 1 | 100 | 100 | 5 |
+| 2 | 155 | 255 | 13 |
+| 5 | 380 | 1,150 | 58 |
+| 10 | 955 | 4,675 | 234 |
+| 20 | 2,855 | 23,850 | 1,192 |
+| 30 | 5,755 | 67,525 | 3,376 |
+| 50 | 14,555 | 268,375 | 13,419 |
+
+"Active minutes" assumes one message per minute at an average of 20 XP.
+
+## Level-up message
+
+Choose where ShieldCore announces a new level:
+
+| Option | What happens |
+| --- | --- |
+| **Same channel** | The message appears in the channel where the member just chatted. |
+| **Fixed channel** | Every announcement goes to one channel you choose. |
+| **Direct message** | The member gets a DM. |
+| **Off** | No announcement. |
+
+You can write your own text with these variables: `{user}` (mention), `{username}`, `{level}` and `{server}`.
+
+## Role rewards
+
+Give a role automatically when a member reaches a level, for example *Regular* at level 5 and *Veteran* at level 20. You can add up to **25** rewards.
+
+**Keep earlier reward roles** decides what happens with older rewards:
+
+- **On:** members collect every reward role they earned.
+- **Off:** members only keep the role of their highest reward.
+
+<Warning>
+  ShieldCore's own role must be **above** every reward role, or it cannot hand them out. See the [setup wizard](/dashboard/setup-wizard).
+</Warning>
+
+## Where XP counts
+
+- **No XP in these channels:** for example spam, bot or counting channels. Choosing a category covers every channel in it, and a channel also covers its threads. Up to 50.
+- **No XP for these roles:** for example a muted role. Up to 50.
+
+## XP multipliers
+
+Members with certain roles earn more XP per message. Add up to **10** multipliers between **×1.1** and **×5**. There is also a ready-made option for **Server Boosters**. Multipliers do not stack: only the highest one a member has counts.
+
+## Wipe XP when a member leaves
+
+Keeps the leaderboard clean. Someone who leaves and comes back starts again at level 0.
+
+## Rank card
+
+The rank card is the picture members get with `/levels`. A live preview shows your own Discord name and avatar.
+
+- **Layout:** Classic, Mirrored or Compact.
+- **Move parts:** drag the avatar, name, level, rank, XP and bar to where you want them. They snap to the middle and to each other; hold **Alt** to place them freely.
+- **Per part:** show or hide it, and change size and alignment. The bar has a width and height, and the level can be a badge or plain text.
+- **Avatar:** circle, rounded or square shape, with an optional accent ring and a glow behind it.
+- **Colors and font:** background (optionally a gradient), accent, text, soft text and the empty part of the bar.
+- **Background image:** upload a PNG, JPEG or WebP. It is cropped to 934 × 282 and saved right away. You can darken it so text stays readable.
+
+**Default look** puts everything back to the standard ShieldCore card.
+
+## Leaderboard
+
+The module page shows a leaderboard of every member with XP, with pages. In Discord, members use `/leaderboard` to see the top 10 per page.
+
+## Reset all XP
+
+Use this for a new season, for example. It deletes the XP and levels of **every member of this server** and empties the leaderboard. Reward roles members already have are **not** removed.
+
+<Warning>
+  A reset cannot be undone. You have to type `RESET` to confirm. Only this server is affected.
+</Warning>
+
+## Commands
+
+| Command | What it does |
+| --- | --- |
+| `/levels [user]` | Show your own rank card, or that of another member. |
+| `/leaderboard [page]` | Show the members with the most XP, 10 per page. |
+
+If the module is off, these commands tell members that an admin can switch it on in the dashboard.
+
+## Custom bots
+
+Levels also works when your server runs on a [custom bot](/custom-bot/overview).

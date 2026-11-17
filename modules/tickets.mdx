@@ -3,33 +3,115 @@ title: "Tickets"
 description: "Private support tickets opened from a panel, handled by staff and saved as transcripts."
 ---
 
-Members open a private ticket from a **panel** (a message with a button or menu). Staff handle it in the ticket channel, and when it is closed the conversation is saved as a **transcript**.
+Members open a private ticket from a **panel**: a message in your server with buttons, a dropdown or reactions. Staff handle the ticket in its own channel. When it is closed, the conversation is saved as a **transcript** that you can open with a link.
 
-Open **Tickets** in the sidebar. It has three parts: **Configuration**, **History** and **Analytics** (analytics is not available yet).
+Open **Tickets** in the sidebar. It has **Configuration**, **History** and **Analytics** (analytics is not available yet).
 
-## Panels
+## Ticket systems (panels)
 
-A panel is the message members click to open a ticket. Create a panel, choose its categories or options and post it in a channel. Free servers can have 1 panel; Premium servers 25. The page shows how many you have used.
+A ticket system is one panel plus the ticket types members can choose from it. Free servers can have 1 panel; Premium servers 25. The page shows how many you have used.
+
+When you create your first one, pick a starting point:
+
+- **Single Support Queue:** one button, one ticket type. The fastest way to get going.
+- **Multiple Departments:** starts with General Support, Technical Support and Billing.
+- **Start from scratch:** add your own options.
+
+The setup walks through four steps:
+
+<Steps>
+  <Step title="Panel and destination">
+    Choose the channel where members find the panel.
+  </Step>
+  <Step title="Ticket types">
+    Choose which tickets members can open from this panel.
+  </Step>
+  <Step title="Ticket experience">
+    Set the welcome message inside new tickets and review everything.
+  </Step>
+  <Step title="Design the public panel">
+    Write the public message and pick its look, then publish.
+  </Step>
+</Steps>
+
+### Panel style
+
+| Style | What it looks like |
+| --- | --- |
+| **Classic (embed)** | A regular embed with the options below it. |
+| **Modern (V2)** | A Discord card with text, separators and buttons. Each button can have a description under its name, with bold text and server emoji. |
+
+Members open a ticket with a **button**, a **dropdown** option or a **reaction** with an emoji. Dropdown descriptions are plain text (up to 100 characters).
+
+### Import and export
+
+Export a panel as JSON to keep a copy or reuse it on another server. When importing, ShieldCore helps you match the roles and categories to the ones on the new server.
 
 <Note>
-  Deleting a panel removes it permanently, but tickets that are already open are not affected. The message already posted in Discord is not removed automatically and its buttons stop working.
+  Deleting a panel removes it permanently, but open tickets are not affected. The message already posted in Discord is not removed automatically and its buttons stop working.
 </Note>
 
-## Configuration (applies to all panels)
+## Ticket types
+
+Ticket types are reusable: you set one up once and add it to any panel on the server. For each type you choose:
 
 | Setting | What it does |
 | --- | --- |
-| **Creator can close** | Allow the person who opened a ticket to close it. When off, only authorized staff can. |
-| **Delete delay** | How long a closed ticket channel stays visible before it is deleted. |
-| **Auto-close (Premium)** | Close tickets that have been idle for 1–24 hours. |
-| **Transcript logging** | Choose whether transcripts are created. |
+| **Discord category** | Where tickets of this type are created. |
+| **Ticket channel name** | The format of the channel name, for example `{username}` or `{ticket}`. |
+| **Max open tickets per user** | How many tickets one member can have open at the same time. |
+| **Staff roles** | Which roles can see and handle tickets of this type. |
+| **Role permissions** | Fine-tune which actions each staff role may do. |
+| **Button style** | How the button looks in Discord. |
+
+An **archived** type keeps working on panels that already use it, but cannot be added to new ones.
+
+### Ticket forms
+
+Ask members questions before a ticket is created. Each button or dropdown option can have its own form. Members fill it in a Discord pop-up, and no ticket is made until they submit. Answers appear in the first message of the ticket. Questions can be required. Discord shows a limited number of questions per pop-up, so a long form is split into steps; the dashboard tells you how many.
+
+## Server-wide settings
+
+These apply to every ticket system on the server.
+
+| Setting | What it does |
+| --- | --- |
+| **Creator can close** | Allow the person who opened a ticket to close it. When off, only staff can. |
+| **Delete delay** | How long a closed ticket channel stays before ShieldCore deletes it. |
+| **Transcript logging** | Whether transcripts are created. |
 | **Transcript destination** | Post the transcript in the ticket before closing, and/or send it to a transcript channel. |
-| **DM the creator** | Also send the ticket creator a private copy of the transcript. |
+| **DM the creator** | Also send the person who opened the ticket a copy. |
+| **Ticket IDs** | Give tickets an ID with your own prefix and a random suffix, for example `score-1h2H3`. |
+| **Inactivity auto-close (Premium)** | Close tickets when nobody writes for the chosen time (1–24 hours). A reminder is posted in the ticket shortly before it closes, and any new message resets the timer. |
 
 ## Working a ticket
 
-Staff can **claim** a ticket so everyone knows who is handling it, and use `/ticket` in the ticket channel to manage it.
+Staff use `/ticket` inside the ticket channel:
 
-## History and transcripts
+| Command | What it does |
+| --- | --- |
+| `/ticket claim` / `/ticket unclaim` | Show that you handle the ticket, or release it. |
+| `/ticket add` / `/ticket remove` | Add or remove a member. |
+| `/ticket rename` | Rename the channel. |
+| `/ticket move` | Move the ticket to another ticket category, for example from Support to Management. The new staff roles get access and are pinged; the old ones lose access unless you set `keep_access`. |
+| `/ticket close` | Close the ticket with an optional reason. |
 
-**History** lists tickets with their status, category, who claimed them and whether a transcript exists. Search by creator or category, open a ticket to see its details, and view the transcript as a Discord-style conversation you can search. You can download all transcripts matching your filters as one ZIP file (the newest ones if there are very many).
+See the [command list](/commands/list#ticket) for all options.
+
+## Transcripts
+
+When a ticket closes, ShieldCore saves the conversation. The person who opened it (if you chose the DM option) and your transcript channel get a short message with the ticket details and a **View transcript** button.
+
+The button opens the transcript on a read-only page at `shieldcore.app/t/...`. Nobody needs to log in, but only people with the link can open it, and it is hidden from search engines. The page shows:
+
+- the messages, including cards and buttons from modern panels,
+- who opened, claimed and closed the ticket, the reason, the duration and the time to the **first response**,
+- the participants, with **BOT** and **STAFF** badges,
+- a link to every single message,
+- a switch between UTC and your own timezone.
+
+Attachments are not stored. Images whose Discord link has expired show the file name instead.
+
+## History
+
+**History** lists every ticket with its status, category, who claimed it and whether a transcript exists. Search by creator or category and open a ticket to see its details and transcript. Use **Copy public link** to share a transcript.

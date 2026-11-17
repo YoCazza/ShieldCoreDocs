@@ -7,6 +7,26 @@ A "nuke" is when someone with too much power (or a hijacked admin account or rog
 
 Open it from **Anti-Nuke** in the sidebar.
 
+## Health check
+
+At the top of the page, ShieldCore checks whether it can actually do its job. It warns you when:
+
+- it is **missing permissions**, such as View Audit Log or Manage Roles. Without them it cannot stop people or restore things.
+- **roles stand above the ShieldCore role** that still have dangerous permissions. Those members cannot be stopped. Move the ShieldCore role higher in **Server Settings → Roles**.
+
+Press **Check again** after fixing it. When everything is fine you see one calm green line.
+
+## Lockdown
+
+During an attack, press **Start lockdown** (you are asked to confirm). ShieldCore then stops everyone from **writing, reacting, making threads and creating invites** at once, by changing what `@everyone` may do.
+
+- **End lockdown** gives back exactly the permissions that were taken away.
+- A lockdown ends by itself after **1 hour**.
+- Channels with their own `@everyone` permissions are left alone.
+- The bot picks up the request within a few seconds. If it has not after 20 seconds, the page tells you and lets you cancel the request, and shows the last error.
+
+Lockdown also works for servers that run on a [custom bot](/custom-bot/overview).
+
 ## Presets
 
 Choose a preset first, then fine-tune anything you like.
@@ -38,9 +58,29 @@ Each protection triggers when a number of actions happen within a time window. T
 
 For every protection you can change the number of actions, the time window and the response, and switch it on or off. **Enable all** and **Disable all** change them in bulk.
 
+A few extra things are watched too: **deleting webhooks** counts toward the webhook protection, a change of the **vanity URL** counts toward server settings changes, and giving `@everyone` the **Mention Everyone** or **Manage Channels** permission counts as a dangerous permission.
+
 ### Restore
 
-For some protections (channel delete and role delete by default) ShieldCore can **undo the change automatically** when the protection triggers, so deleted channels and roles come back.
+For some protections ShieldCore can **undo the change automatically** when the protection triggers. Channel delete and role delete restore by default, so deleted channels and roles come back. You can switch on more (off by default):
+
+| Protection | What is restored |
+| --- | --- |
+| Member ban | Lifts the bans handed out in the attack. |
+| Server settings changes | Puts the server name, icon and verification level back. |
+| Dangerous role permissions | Sets the role permissions back to what they were. |
+
+## Alerts and lockdown
+
+Optional, all off by default:
+
+- **Send the server owner a DM** when someone is stopped. Nothing is sent if their DMs are closed.
+- **Ping a role** in the Anti-Nuke log message, so your staff sees it.
+- **Start a lockdown by itself** when several incidents follow each other quickly (2 to 10 incidents within 5 minutes), so the attack cannot go on under another account.
+
+## Overview
+
+The collapsible **Overview** at the bottom shows what Anti-Nuke stopped over the last 7, 30 or 90 days: incidents, actions caught, people stopped and things restored, per protection, per day, and the people stopped most often.
 
 ## Exceptions
 
